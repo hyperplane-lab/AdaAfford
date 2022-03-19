@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>AdaAfford: Learning to Adapt Manipulation Affordance for 3D Articulated Objects via Few-shot Interactions</title>
+<link rel="SHORTCUT ICON" href="favicon.ico"/>
+<link href='css/paperstyle.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+<div class="pageTitle">
+    AdaAfford: Learning to Adapt Manipulation Affordance <br>for 3D Articulated Objects via Few-shot Interactions
+  <br>
+  <br>
+  <span class = "Authors">
+      <a href="https://galaxy-qazzz.github.io/" target="_blank">Yian Wang</a><sup>1</sup>
+      <a href="https://warshallrho.github.io/" target="_blank">Ruihai Wu<sup>1*</sup> &nbsp; &nbsp;&nbsp; &nbsp;
+      <a href="https://www.cs.stanford.edu/~kaichun/" target="_blank">Kaichun Mo</a><sup>2*</sup> &nbsp; &nbsp;
+      <a href="https://github.com/KurtHorizon/" target="_blank">Jiaqi Ke </a><sup>1</sup> &nbsp; &nbsp;
+      <a href="https://fqnchina.github.io/" target="_blank">Qingnan Fan</a><sup>3</sup> &nbsp; &nbsp;<br>
+      <a href="https://geometry.stanford.edu/member/guibas/" target="_blank">Leonidas J. Guibas</a><sup>2</sup> &nbsp; &nbsp;
+      <a href="https://zsdonghao.github.io/" target="_blank">Hao Dong</a><sup>1</sup> &nbsp; &nbsp;<br>
+      <i>(*: indicates joint first authors)</i><br><br>
+      <sup>1</sup><a href = "http://english.pku.edu.cn/" target="_blank"> Peking University </a> &nbsp; &nbsp;
+      <sup>2</sup><a href = "http://www.stanford.edu/" target="_blank"> Stanford University </a> &nbsp; &nbsp;
+      <sup>3</sup><a href = "https://ai.tencent.com/ailab/zh/index" target="_blank"> Tencent AI Lab </a> &nbsp; &nbsp;<br><br>
+  </span>
+  </div>
+
+<div class = "material">
+        <a href="https://arxiv.org/abs/2112.00246" target="_blank">[ArXiv Preprint]</a>
+</div>
+
+<div class = "abstractTitle">
+  Abstract
+  </div>
+  <p class = "abstractText">
+  Perceiving and interacting with 3D articulated objects, such as cabinets, doors, and faucets, pose particular challenges for future home-assistant robots performing daily tasks in human environments. Besides parsing the articulated parts and joint parameters, researchers recently advocate learning manipulation affordance over the input shape geometry which is more task-aware and geometrically fine-grained. However, taking only passive observations as inputs, these methods ignore many hidden but important kinematic constraints (e.g., joint location and limits) and dynamic factors (e.g., joint friction and restitution), therefore losing significant accuracy for test cases with such uncertainties. In this paper, we propose a novel framework, named AdaAfford, that learns to perform very few test-time interactions for quickly adapting the affordance priors to more accurate instance-specific posteriors. We conduct large-scale experiments using the PartNet-Mobility dataset and prove that our system performs better than baselines. We will release our code and data upon paper acceptance.
+</p>
+
+<br>
+<br>
+<br>
+
+<div class="abstractTitle">
+    Tasks
+</div>
+  <img class="bannerImage" src="./images/teaser.png" ,="" width="800"><br>
+  <table width="800" align="center"><tbody><tr><td><p class="figureTitleText">
+              Figure 1.
+      For robotic manipulation over 3D articulated objects (a), past works have demonstrated the usefulness of per-point manipulation affordance (b).
+    However, only observing static visual inputs passively, these systems suffer from intrinsic ambiguities over kinematic constraints.
+    Our AdaAfford framework reduces such uncertainties via interactions and quickly adapts instance-specific affordance posteriors (c).
+  </p></td></tr></tbody></table>
+
+<div class="abstractTitle">
+    Framework and Network Architecture
+</div>
+  <img class="bannerImage" src="./images/fig2.png" ,="" width="800"><br>
+  <table width="800" align="center"><tbody><tr><td><p class="figureTitleText">
+              Figure 2.
+    Test-time overview. Our proposed AdaAfford framework primarily consists of two modules – an Adaptive Interaction Proposal module and an Adaptive Affordance Prediction module. While the AIP module learns a greedy yet effective strategy for sequentially proposing the few-shot test-time interactions, the AAP module is trained to adapt the affordance predictions. Please check the main paper for more technical details.
+  </p></td></tr></tbody></table>
+
+<div class="abstractTitle">
+    Qualitative Results
+</div>
+  <img class="bannerImage" src="./images/fig3.png" ,="" width="800"><br>
+  <table width="800" align="center"><tbody><tr><td><p class="figureTitleText">
+              Figure 3.
+      Example results of adapted affordance predictions given by AAP module under different kinematic and dynamic parameters. The first five columns show the adapted affordance prediction conditioned on increasing joint friction (the first and second columns), part mass (the third column), and friction coefficient on object surface (the fourth and fifth columns). The last two columns respectively show the influence of different rotating directions (i.e., joint limits) and joint axis locations.
+  </p></td></tr></tbody></table>
+  <img class="bannerImage" src="./images/fig4.png" ,="" width="800"><br>
+  <table width="800" align="center"><tbody><tr><td><p class="figureTitleText">
+              Figure 4.
+      Example results for the interactions proposed by the AIP module and the corresponding AIP affordance map predictions.
+    In the first three rows, we show the initial and the second AIP affordance maps, the corresponding proposed interactions, and the posterior affordance map predictions.
+    In the last row, we present two more examples that only one interaction is needed. From these results, our AIP module successfully proposes reasonable interactions for querying useful hidden information.
+  </p></td></tr></tbody></table>
+  <img class="bannerImage" src="./images/fig5.png" ,="" width="800"><br>
+  <table width="800" align="center"><tbody><tr><td><p class="figureTitleText">
+              Figure 5.
+      Real-robot experiment on pulling open a closed door in the real world. We show the AIP affordance map predictions, the AIP proposed interactions, and the AAP posterior predictions, for two interaction trials. The results show that our work could reasonably generalize to real-world scenarios.
+  </p></td></tr></tbody></table>
+
+<p></p>
+
+</body></html>
